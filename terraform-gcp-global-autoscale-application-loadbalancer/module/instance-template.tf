@@ -13,6 +13,15 @@ resource "google_project_iam_binding" "bankapp_gke_sa_role" {
   ]
 }
 
+# Attached GCP IAM Role to Service Account
+resource "google_project_iam_binding" "bankapp_gke_sa_log_role" {
+  project = var.project_name  ### Project ID for your Google Account
+  role    = "roles/logging.logWriter"
+  members = [
+    "serviceAccount:${google_service_account.bankapp_sa.email}",
+  ]
+}
+
 # Instance Template in GCP
 resource "google_compute_instance_template" "bankapp_template" {
   name        = "${var.prefix}-tempate"
