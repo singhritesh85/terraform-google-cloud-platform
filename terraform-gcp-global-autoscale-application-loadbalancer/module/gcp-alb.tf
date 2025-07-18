@@ -76,7 +76,7 @@ resource "google_compute_backend_service" "gcp_alb_backend" {
   }
 
   health_checks = [google_compute_http_health_check.gcp_alb_health_check.id]
-  port_name     = "http"
+  port_name     = "bankapp-application"  ### The same name should appear in the instance groups referenced by this service
 
   log_config {
     enable          = true
