@@ -1,6 +1,6 @@
 ################## Parameters for GCP to be used for the Project ######################
 
-project_name = "wise-trainer-244916"  ### Provide the GCP Account Project ID. 
+project_name = "XXXX-XXXXXXX-2XXXX6"  ### Provide the GCP Account Project ID. 
 
 gcp_region = ["us-east1", "us-central1", "asia-south2", "asia-south1", "us-west1"]
 
