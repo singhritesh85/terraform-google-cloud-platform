@@ -77,16 +77,16 @@ resource "google_container_cluster" "gke_cluster" {
   remove_default_node_pool = true   ### Delete default node pool after its creation
   initial_node_count       = 1
 
-  node_config {
-    preemptible  = false
-    disk_size_gb = 12
-    disk_type = "pd-standard"  # Supported pd-standard, pd-balanced or pd-ssd, default is pd-balanced. However I am using pd-standard because it is cheaper.
-    machine_type = var.machine_type[0]
-    service_account = google_service_account.bankapp_gke_sa.email  ###Custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    oauth_scopes    = [
-      "https://www.googleapis.com/auth/cloud-platform"
-    ]
-  }
+#  node_config {
+#    preemptible  = false
+#    disk_size_gb = 12
+#    disk_type = "pd-standard"  # Supported pd-standard, pd-balanced or pd-ssd, default is pd-balanced. However I am using pd-standard because it is cheaper.
+#    machine_type = var.machine_type[0]
+#    service_account = google_service_account.bankapp_gke_sa.email  ###Custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
+#    oauth_scopes    = [
+#      "https://www.googleapis.com/auth/cloud-platform"
+#    ]
+#  }
   
   network = google_compute_network.gke_vpc.id
   subnetwork = google_compute_subnetwork.gke_subnet.id
